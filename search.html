@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Pesquisa Simples</title>
+    <style>
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        #results {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #results li {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="searchInput" placeholder="Digite para pesquisar...">
+
+    <ul id="results">
+        <li>Maçã</li>
+        <li>Banana</li>
+        <li>Cereja</li>
+        <li>Damasco</li>
+        <li>Uva</li>
+        <li>Laranja</li>
+        <li>Melancia</li>
+        <li>Pêssego</li>
+    </ul>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const results = document.getElementById('results');
+        const items = results.getElementsByTagName('li');
+
+        searchInput.addEventListener('keyup', function() {
+            const filter = searchInput.value.toLowerCase();
+            
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i].textContent.toLowerCase();
+                
+                if (item.includes(filter)) {
+                    items[i].style.display = '';
+                } else {
+                    items[i].style.display = 'none';
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

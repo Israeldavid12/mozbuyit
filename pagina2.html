@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 2</title>
+</head>
+<body>
+
+    <div id="receivedContent1">
+        <!-- O conteúdo transferido será inserido aqui -->
+    </div>
+    <div id="receivedContent2">
+        <!-- Outro conteúdo transferido será inserido aqui -->
+    </div>
+
+    <script>
+        function loadData() {
+            // Recupera os dados do localStorage
+            const receivedText1 = localStorage.getItem('textData1');
+            const receivedText2 = localStorage.getItem('textData2');
+
+            // Insere os dados recuperados nas respectivas divs
+            if (receivedText1) {
+                document.getElementById('receivedContent1').innerText = receivedText1;
+            }
+            if (receivedText2) {
+                document.getElementById('receivedContent2').innerText = receivedText2;
+            }
+        }
+
+        // Chama a função loadData quando a página é carregada
+        window.onload = loadData;
+    </script>
+
+</body>
+</html>

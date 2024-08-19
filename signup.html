@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOZBUYIT - Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+            color: #fff;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1000px;
+            background-color: #fff;
+            color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .left {
+            flex: 1;
+            padding: 50px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .left h1 {
+            font-size: 14px;
+            margin: 0;
+        }
+        .left p {
+            margin-top: 20px;
+            font-size: 1.2em;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .right {
+            color: #fff;
+            flex: 1;
+            padding: 50px;
+            background-color: #062658;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .right h2 {
+            font-size: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .right h2 span {
+            margin-left: 10px;
+        }
+        .right input {
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            width: calc(100% - 30px);
+        }
+        .right button {
+            padding: 15px;
+            font-size: 1em;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            background-color: #2196F3;
+            color: #fff;
+            cursor: pointer;
+        }
+        .right .toggle-password {
+            margin-left: -30px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .right .link {
+            color: #ffa9f9;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .right .checkbox {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .right .checkbox input {
+            margin-right: 10px;
+        }
+
+        /* Estilo para telas menores, como celulares */
+        @media only screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .left {
+                display: none;
+            }
+            .right {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+
+        .right img {
+            border-radius: 50%;
+            height: 100%;
+           
+        }
+        .pass {
+          
+          display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+      }
+        .pass input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px; /* Espaço para o ícone */
+    font-size: 16px;
+    box-sizing: border-box;
+}
+#loadingScreen {
+    color: white;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+/* Esconde o conteúdo principal inicialmente */
+#mainContent {
+    display: none;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="left">
+            <img src="logo1.png" alt="mozbuyit" style="width: 150px;">
+            <h1>Vamos comprar recargas!</h1>
+            <p>Melhore a sua jogabilidade comprando recursos nos seus jogos.</p>
+        </div>
+        <div class="right">
+            <img src="logo2.png" alt="Mozbuyit" style="width: 150px;">
+            <h2> Crie uma conta, e tenha acesso a todos serviços da MozBuyIti</h2>
+            <form>
+                <h4>E-mail</h4>
+                <input id="email"  type="text" placeholder="Seu E-mail" required>
+                <div class="pass" style="position: relative;">
+                    <h4>Palavra-passe</h4>
+                    <input type="password" id="password" placeholder="Palavra-passe" required>
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+                <div class="checkbox">
+                  
+                </div>
+                <button id="create" >Criar minha conta</button>
+            </form>
+            <a href="login.html" class="link"><span style="color: white;">Ja tem uma conta?</span> Entrar</a>
+        </div>
+    </div>
+    <!-- Adicione o Firebase SDK ao seu arquivo HTML -->
+
+ <script type="module">
+         // Importando módulos do Firebase
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+
+// Configuração do Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyBH1L-LBZzPhfDXBImT-J5XtRZ9wCZ-56Y",
+    authDomain: "skbet-web.firebaseapp.com",
+    databaseURL: "https://skbet-web-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "skbet-web",
+    storageBucket: "skbet-web.appspot.com",
+    messagingSenderId: "1096868534717",
+    appId: "1:1096868534717:web:13f6d2ec0a3dd88340dad4",
+    measurementId: "G-L5HKQRTTZL"
+};
+
+// Inicializando o Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+
+// Função para criar uma nova conta
+const signupButton = document.getElementById('create');
+signupButton.addEventListener('click', () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+           alert('Conta criada com sucesso ');
+           window.location.href = "casa.html";
+          
+        })
+        .catch((error) => {
+            // Tratamento de erros
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert('Erro: ' + errorMessage);
+            window.location.href = "casa.html";
+        });
+});
+ </script>
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            var passwordToggle = document.querySelector(".toggle-password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.textContent = "🙈";
+            } else {
+                passwordField.type = "password";
+                passwordToggle.textContent = "👁️";
+            }
+        }
+    </script>
+</body>
+</html>

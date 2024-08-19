@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentários</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+.comment-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.comment {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+   
+}
+
+.comment.reply {
+    margin-top: -30;
+    margin-bottom: -30px;
+    margin-left: 50px; /* Recuo para indicar uma resposta */
+    background-color: #F5F5F4; /* Cor de fundo diferente para distinguir respostas */
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-pic-p {
+    transform: translateY(10px);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-pic {
+
+    transform: translateY(50px);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px
+    
+}
+
+.profile-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name strong {
+    font-size: 14px;
+    color: #333;
+}
+
+.profile-name .time {
+    font-size: 12px;
+    color: #606770;
+}
+
+.comment-text {
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #1c1e21;
+}
+
+.reaction {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.reaction-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.reaction span {
+    font-size: 14px;
+    color: #606770;
+    margin-left: 5px;
+}
+
+.status {
+    margin-top: -21px;
+    margin-left: 50px; /* Recuo para indicar uma resposta */
+    background-color: #ffffff;
+    margin-right: 19px;
+    padding-right: 15px;
+}
+
+.con {
+    font-size: 15px;
+    color: #90949C;
+    margin-right: 19px;
+    font-weight: bold;   
+}
+
+.sin {
+    font-size: 15px;
+    color: #90949C;
+    margin-right: 19px;
+}
+    </style>
+</head>
+<body>
+    <div class="comment-section">
+        <!-- Comentário principal -->
+        <img src="https://i.postimg.cc/4d0qZ00X/Thank-You-1.png" alt="Perfil de Tereza Muniz" class="profile-pic-p">
+        <div class="comment">
+            <div class="profile">
+                
+                <div class="profile-name">
+                    <strong>Tereza Muniz</strong>
+                    <span class="time">10 min</span>
+                </div>
+            </div>
+            <p class="comment-text">Pensé que era una estafa, pero ya he utilizado la receta y funcionó, vine aquí sólo para darle las gracias doctor, es muy fácil de hacer, y mi azúcar en la sangre se ha estabilizado en 92 puntos, ahora puedo comer lo que me gusta sin tener que preocuparme.</p>
+            <div class="reaction">
+                <img src="https://i.postimg.cc/QCt8YvTs/l.webp" alt="like" class="reaction-icon">
+                <img src="https://i.postimg.cc/pTVRy3k8/h.webp" alt="love" class="reaction-icon">
+                <span>18</span>
+            </div>
+        </div>
+
+        <!-- Resposta ao comentário -->
+        <div class="comment reply">
+            <div class="profile">
+                <img src="https://i.postimg.cc/ryPMFn40/transferir-26.jpg" alt="Perfil de Jose Santiago" class="profile-pic-p">
+                <div class="profile-name">
+                    <strong>Jose Tevez Santiago</strong>
+                    <span class="time">5 min</span>
+                </div>
+            </div>
+            <p class="comment-text">Muchas gracias por compartir esto con nosotros, nos da mas seguridad y tranquilidad para poder encontrar una solucion a nuestros problemas tambien.</p>
+            <div class="reaction">
+                <img src="https://i.postimg.cc/pTVRy3k8/h.webp" alt="like" class="reaction-icon">
+                <span>15</span>
+            </div>
+        </div>
+
+        <!-- Outro comentário principal -->
+        <div class="comment">
+            <div class="profile">
+                <img src="https://i.postimg.cc/fLbQMmTf/transferir-13.jpg" alt="Perfil de Neide Fernandez" class="profile-pic">
+                <div class="profile-name">
+                    <strong>Neide Fernandez</strong>
+                    <span class="time">19 min</span>
+                </div>
+            </div>
+            <p class="comment-text">Ahora no lo puedo creer, años y años de tener que perforarme el dedo y nada lo solucionaba, y ahora que sigo el paso a paso de este néctar desde hace 3 semanas ya no siento mi visión borrosa, esos síntomas de malestar y boca seca también han pasado, mi glucosa en sangre está en 97 puntos estoy muy feliz es increíble, gracias Dr ❤️.</p>
+            <div class="reaction">
+                <img src="https://i.postimg.cc/QCt8YvTs/l.webp" alt="like" class="reaction-icon">
+                <img src="https://i.postimg.cc/pTVRy3k8/h.webp" alt="love" class="reaction-icon">
+                <span>29</span>
+            </div>
+        </div>
+        
+        <!-- Resposta ao comentário -->
+        <img src="https://i.postimg.cc/ryPMFn40/transferir-26.jpg" alt="Perfil de Maria Gonzalez" class="profile-pic">
+        <div class="comment reply">
+            <div class="profile">
+                <div class="profile-name">
+                    <strong>Maria González</strong>
+                    <span class="time">12 min</span>
+                </div>
+            </div>
+            <p class="comment-text">Que maravilla Neide, solo tus palabras y las de otras personas de aquí me han dado ánimos para hacer este néctar también, luego volveré por aquí y te contaré que tal.... estoy deseando hacer el paso a paso pronto 😍🙏</p>
+            <div class="reaction">
+                <img src="https://i.postimg.cc/pTVRy3k8/h.webp" alt="love" class="reaction-icon">
+                <span>37</span>
+            </div>
+        </div>
+        <img src="https://i.postimg.cc/4d0qZ00X/Thank-You-1.png" alt="Perfil de Tereza Muniz" class="profile-pic">
+        <div class="comment">
+            <div class="profile">
+                <div class="profile-name">
+                    <strong>Tereza Muniz</strong>
+                    <span class="time">10 min</span>
+                </div>
+            </div>
+            <p class="comment-text">Pensé que era una estafa, pero ya he utilizado la receta y funcionó, vine aquí sólo para darle las gracias doctor, es muy fácil de hacer, y mi azúcar en la sangre se ha estabilizado en 92 puntos, ahora puedo comer lo que me gusta sin tener que preocuparme.</p>
+            <div class="reaction">
+                <img src="https://i.postimg.cc/QCt8YvTs/l.webp" alt="like" class="reaction-icon">
+                <img src="https://i.postimg.cc/pTVRy3k8/h.webp" alt="love" class="reaction-icon">
+                <span>18</span>
+            </div>
+        </div>
+        <div class="status">
+            <a href="" class="con">Me gusta </a>
+            <a href="" class="con">Responder</a>
+            <a href="" class="sin">15 min</a>
+</div>
+        <!-- Resposta ao comentário -->
+        <img src="https://i.postimg.cc/ryPMFn40/transferir-26.jpg" alt="Perfil de Jose Santiago" class="profile-pic">
+        <div class="comment reply">
+            <div class="profile">
+                <div class="profile-name">
+                    <strong>Jose Tevez Santiago</strong>
+                    
+                </div>
+            </div>
+            <p class="comment-text">Muchas gracias por compartir esto con nosotros, nos da mas seguridad y tranquilidad para poder encontrar una solucion a nuestros problemas tambien.</p>
+            <div class="reaction">
+                <img src="https://i.postimg.cc/pTVRy3k8/h.webp" alt="like" class="reaction-icon">
+                <span>15</span>
+            </div>
+    </div>
+    <div class="status">
+                <a href="" class="con">Me gusta </a>
+                <a href="" class="con">Responder</a>
+                <a href="" class="sin">15 min</a>
+    </div>
+</body>
+</html>

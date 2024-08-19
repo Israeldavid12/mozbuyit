@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPT com Realtime Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Processamento de Transações</h1>
+    <button onclick="initiateTransaction()">Criar Transação</button>
+    <button onclick="checkTransactionStatus()">Verificar Status</button>
+
+    <!-- Inclua as bibliotecas Firebase -->
+    <script type="module">
+        // Importando as funções necessárias do Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+        //import { getDatabase, ref, get } from 'firebase/database';
+        import { getDatabase, ref,set, get } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+  apiKey: "AIzaSyBH1L-LBZzPhfDXBImT-J5XtRZ9wCZ-56Y",
+  authDomain: "skbet-web.firebaseapp.com",
+  databaseURL: "https://skbet-web-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "skbet-web",
+  storageBucket: "skbet-web.appspot.com",
+  messagingSenderId: "1096868534717",
+  appId: "1:1096868534717:web:13f6d2ec0a3dd88340dad4",
+  measurementId: "G-L5HKQRTTZL"
+};
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const analytics = getAnalytics(app);
+
+        function generateTransactionID() {
+            return 'TRANS-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+        }
+
+        async function createTransaction(amount) {
+            const transactionID = generateTransactionID();
+            const transactionData = {
+                amount: amount,
+                status: 'pending',
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+
+            try {
+                await set(ref(database, 'transactions/' + transactionID), transactionData);
+                console.log(`Transação ${transactionID} criada com sucesso.`);
+                return transactionID;
+            } catch (error) {
+                console.error("Erro ao criar transação:", error.message, error);
+                return null;
+            }
+        }
+
+        async function updateTransactionStatus(transactionID, newStatus) {
+            try {
+                await update(ref(database, 'transactions/' + transactionID), {
+                    status: newStatus,
+                    updatedAt: new Date().toISOString()
+                });
+                console.log(`Status da transação ${transactionID} atualizado para ${newStatus}.`);
+            } catch (error) {
+                console.error("Erro ao atualizar status da transação:", error);
+            }
+        }
+
+        async function getTransactionStatus(transactionID) {
+            try {
+                const snapshot = await get(ref(database, 'transactions/' + transactionID));
+                const transactionData = snapshot.val();
+                
+                if (transactionData) {
+                    console.log("Dados da transação:", transactionData);
+                    return transactionData;
+                } else {
+                    console.log("Nenhuma transação encontrada com este ID.");
+                }
+            } catch (error) {
+                console.error("Erro ao obter status da transação:", error);
+            }
+        }
+
+        window.initiateTransaction = function() {
+            const amount = prompt("Digite o valor da transação:");
+            if (amount) {
+                createTransaction(amount).then(transactionID => {
+                    if (transactionID) {
+                        alert(`Transação criada com ID: ${transactionID}`);
+                    } else {
+                        alert("Erro ao criar transação.");
+                    }
+                });
+            }
+        }
+
+        window.checkTransactionStatus = function() {
+            const transactionID = prompt("Digite o ID da transação para verificar:");
+            if (transactionID) {
+                getTransactionStatus(transactionID).then(data => {
+                    if (data) {
+                        alert(`Status: ${data.status}\nValor: ${data.amount}`);
+                    } else {
+                        alert("Nenhuma transação encontrada com este ID.");
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

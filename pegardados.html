@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 1</title>
+</head>
+<body>
+
+    <div id="content1">
+        <p id="text1">M-PESA</p>
+        <p id="text2">E_MOLa</p>
+    </div>
+
+    <button onclick="transferData()">Transferir Dados</button>
+
+    <script>
+        function transferData() {
+            // Captura os dados de várias divs ou parágrafos
+            const text1 = document.getElementById('text1').innerText;
+            const text2 = document.getElementById('text2').innerText;
+
+            // Armazena os dados no localStorage
+            localStorage.setItem('textData1', text1);
+            localStorage.setItem('textData2', text2);
+
+            // Redireciona para a Página 2
+            window.location.href = 'pagina2.html';
+        }
+    </script>
+
+</body>
+</html>

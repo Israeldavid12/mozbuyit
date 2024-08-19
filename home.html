@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MozbuyIt - Recargas de Jogos Online</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <header>
+        <div class="container0">
+            <img src="logo1.png" alt="Logo MozbuyIt" class="logo">
+            <div class="auth-buttons">
+                <a href="#" class="btn-secondary">ENTRAR</a>
+                <a href="#" class="btn-secondary2">criar conta</a>
+            </div>
+        </div>
+       
+    </header>
+
+
+    <section id="hero">
+        <div class="carousel">
+            <div class="slides">
+                <img src="baner.jpg" alt="Imagem 1">
+                <img src="baner.jpg" alt="Imagem 2">
+                <img src="baner.jpg" alt="Imagem 3">
+                <img src="baner.jpg" alt="Imagem 4">
+            </div>
+            <button class="prev" onclick="moveSlides(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlides(1)">&#10095;</button>
+            <div class="indicators">
+                <div class="indicator active" onclick="currentSlide(1)"></div>
+                <div class="indicator" onclick="currentSlide(2)"></div>
+                <div class="indicator" onclick="currentSlide(3)"></div>
+                <div class="indicator" onclick="currentSlide(4)"></div>
+            </div>
+        </div>
+    
+    </section>
+
+    <section id="mais-populares">
+        <div class="container">
+            <h2>Todos Serviços</h2>
+            <div class="game-grid">
+                <div class="game-item"><img src="ff.png" alt="Free Fire MZ">FREE FIRE - SSA </div>
+                <div class="game-item"><img src="MozBuyIt.png" alt="Assinaturas FF">FREE FIRE - BRASIL</div>
+                <div class="game-item"><img src="netflix.png" alt="Vodacom Diário">NETFLIX</div>
+                <div class="game-item"><img src="MozBuyIt.png" alt="Free Fire Brasil"></div>
+                <div class="game-item"><img src="MozBuyIt.png" alt="Vodacom Semanal"></div>
+                <div class="game-item"><img src="MozBuyIt.png" alt="Free Fire MZ"></div>
+                <div class="game-item"><img src="MozBuyIt.png" alt="Assinaturas FF"></div>
+                <div class="game-item"><img src="MozBuyIt.png" alt="Vodacom Diário"></div>
+                <div class="game-item"><img src="MozBuyIt.png" alt="Free Fire Brasil"></div>
+                <div class="game-item"><img src="MozBuyIt.png" alt="Vodacom Semanal"></div>
+                <!-- Adicione mais jogos aqui -->
+            </div>
+        </div>
+    </section>
+    <section class="divsao">
+        <div class="info">
+            <h2>Compre Gift Cards, Assinaturas e Recarregue seus Jogos Favoritos</h2>
+            <p>Fácil, rápido e seguro!</p>
+            <a href="#servicos" class="service">Ver Serviços</a>
+        </div>
+    </section>
+    
+    
+    <section id="porque-comprar">
+        <div class="container">
+            <h2>Porquê comprar na MozbuyIt?</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <h3>Rápido e Fácil</h3>
+                    <p>A MozbuyIt oferece facilidade e rapidez na hora de comprar suas recargas para seus jogos.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Entregas em menos de 1h</h3>
+                    <p>Entregas em menos de 1h apos a confirmação do pagamento pela MozBuyIt..</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Métodos de Pagamento Nacionais</h3>
+                    <img class="pays" src="emola.png" alt="emola">
+                    <img class="pays" src="mpesa.png" alt="mpesa">
+                    <p>Pagamento seguro e prático com os métodos mais populares de Moçambique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-left">
+                <p>&copy; 2023 Todos os direitos reservados por MozbuyIt</p>
+                <p>Fique atualizado conosco: <a href="#">Redes Sociais</a></p>
+            </div>
+            <div class="footer-right">
+                <p>Precisa de ajuda? Contatos: <br>
+                   (+258) 851017295 | mozbuyit@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+     let slideIndex = 0;
+
+function showSlide(index) {
+    const slides = document.querySelector('.slides');
+    const indicators = document.querySelectorAll('.indicator');
+    const totalSlides = slides.children.length;
+
+    if (index >= totalSlides) slideIndex = 0;
+    if (index < 0) slideIndex = totalSlides - 1;
+
+    slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    indicators[slideIndex].classList.add('active');
+}
+
+function moveSlides(n) {
+    slideIndex += n;
+    showSlide(slideIndex);
+}
+
+function currentSlide(n) {
+    slideIndex = n - 1;
+    showSlide(slideIndex);
+}
+
+// Automação para mudar os slides a cada 3 segundos
+function startSlideShow() {
+    setInterval(() => {
+        slideIndex++;
+        showSlide(slideIndex);
+    }, 3000); // Muda de slide a cada 3 segundos
+}
+
+// Espera 3 segundos antes de iniciar o slide automático
+window.onload = function() {
+    setTimeout(startSlideShow, 3000);
+};
+
+// Mostra o slide inicial
+showSlide(slideIndex);
+</script>
+</html>

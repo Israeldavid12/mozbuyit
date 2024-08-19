@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Pedidos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #062858;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #062858;
+            margin: 0;
+        }
+
+        .back-button {
+            
+            color: #062858;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .order {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-header h2 {
+            color: #062858;
+            margin: 0;
+        }
+
+        .status {
+            background-color: #062858;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .order-details p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .footer {
+    background-color: #ffffff; /* Fundo branco */
+    padding: 20px 0;
+    color: #333; /* Cor do texto */
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+    max-width: 150px;
+}
+
+.footer-social h4,
+.footer-help h4,
+.footer-contact h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-social a,
+.footer-help .help-button {
+    margin: 0 10px;
+    color: #062858;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.footer-help .help-button {
+    background-color: green; /* Mesma cor rosa do botão */
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-weight: bold;
+    display: inline-block;
+    color: #fff;
+}
+
+.footer-help .help-button:hover {
+    background-color: #ff4081; /* Cor de hover para o botão */
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #000000;
+}
+
+.footer-bottom a {
+    color: #062858;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+.logo {
+    border-radius: 50%;
+    max-width: 50px;
+    margin-bottom: 10px;
+    margin: 20px;
+}
+    </style>
+</head>
+<body>
+    <img class="logo" src="logo.png" alt="">
+    <div class="container">
+        <header>
+            <h1>Meus Pedidos</h1>
+            <a href="casa.html" class="back-button">Voltar à Página Principal</a>
+        </header>
+
+        <div class="order">
+            <div class="order-header">
+                <h2>Pedido #12345</h2>
+                <span class="status">Em Andamento</span>
+            </div>
+            <div class="order-details">
+                <p>Produto: Exemplo de Produto</p>
+                <p>Quantidade: 2</p>
+                <p>Data do Pedido: 01/08/2024</p>
+            </div>
+        </div>
+        
+        <div class="order">
+            <div class="order-header">
+                <h2>Pedido #12346</h2>
+                <span class="status">Concluído</span>
+            </div>
+            <div class="order-details">
+                <p>Produto: Outro Produto</p>
+                <p>Quantidade: 1</p>
+                <p>Data do Pedido: 15/07/2024</p>
+            </div>
+        </div>
+
+        <div class="order">
+            <div class="order-header">
+                <h2>Pedido #12346</h2>
+                <span class="status">Concluído</span>
+            </div>
+            <div class="order-details">
+                <p>Produto: Outro Produto</p>
+                <p>Quantidade: 1</p>
+                <p>Data do Pedido: 15/07/2024</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            
+            <div class="footer-social">
+                <h4>Siga-nos também:</h4>
+                <a href="#"><i class="fab fa-facebook"></i><img src="instagram (1).png" alt=""></a>
+                <a href="#"><i class="fab fa-instagram"><img src="facebook.png" alt=""></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer-help">
+                <h4>Precisa de ajuda?</h4>
+                <a href="#" class="help-button">Nosso Whatsapp</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contactos</h4>
+                <p>(+258) 833859502</p>
+                <p>mozbuyit@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>

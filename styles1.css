@@ -1,0 +1,368 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #062858;
+    color: #ffffff;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+    
+}
+
+.container0 {
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   
+ 
+}
+
+header {
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    color: #000;
+    background-color: #ffffff;
+    padding: 15px 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+}
+
+.logo {
+    width: 100px;
+}
+
+li {
+    color: #000;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+.auth-buttons {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.auth-buttons .btn-secondary {
+    background-color: #062858;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.btn-secondary2 {
+    background-color: #fffeff;
+    color: #000000;
+    padding: 10px 20px;
+    font-size: 11px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#hero {
+    margin-top: 100px;
+    height: 400px; /* Define a altura fixa do banner */
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra todo o espaço sem distorcer */
+    display: block;
+}
+
+#mais-populares {
+    padding: 50px 0;
+    background-color: #062858;
+    text-align: center;
+}
+
+#mais-populares h2 {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.game-item {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.game-item img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.game-item img:hover {
+    transform: scale(1.05);
+}
+
+#porque-comprar {
+    padding: 50px 0;
+    background-color: #1e1e1e;
+    text-align: center;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.feature-item {
+    flex: 1;
+    min-width: 250px;
+}
+
+.feature-item h3 {
+    font-size: 1.8rem;
+    color: #ff0080;
+}
+
+footer {
+    background-color: #052046;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-left, .footer-right {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .auth-buttons {
+        margin-top: 10px;
+    }
+
+    #hero {
+        height: 250px;
+    }
+
+    .features {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .feature-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 80px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+    }
+
+    #hero {
+        height: 200px;
+        padding-top: 60px; /* Espaço para não ficar atrás do header fixo */
+        padding: 20px;
+    }
+
+    .game-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    #mais-populares h2 {
+        font-size: 2rem;
+    }
+
+    .footer-left, .footer-right {
+        text-align: center;
+    }
+}
+
+
+
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px; /* Bordas arredondadas para o carrossel */
+}
+
+/* Imagens do Carrossel */
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra todo o espaço sem distorcer */
+    display: block;
+}
+
+/* Slides */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Botões de Navegação */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Indicadores */
+.indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+.pays {
+    width: 100px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+
+.container1 {
+    width: 80%;
+    margin: 0 auto;
+    padding: 15px;
+    margin-bottom: 15px;
+
+}
+
+.btn-primary3 {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#hero2 {
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+    background: linear-gradient(to right, #ffa9f9, #ff87e3);
+}
+
+#hero2 h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+#hero2 p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.divsao {
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+    background-color: #07306A;
+}
+.info {
+    width: 80%;
+    margin: 0 auto;
+    padding: 15px;
+    margin-bottom: 15px;
+
+}
+
+.divsao h2 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+.divsao p {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #fff;
+    }
+
+.service {
+        background-color: #000000;
+        color: #ffffff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+}

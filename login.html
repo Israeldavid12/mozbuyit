@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOZTOPUP - Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #062856;
+            color: #fff;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1000px;
+            background-color: #fff;
+            color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .left {
+            flex: 1;
+            padding: 50px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .left h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .left p {
+            margin-top: 20px;
+            font-size: 1.2em;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .right {
+            color: #fff;
+            flex: 1;
+            padding: 50px;
+            background-color: #062658;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .right h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .right h2 span {
+            margin-left: 10px;
+        }
+        .right input {
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            width: calc(100% - 30px);
+        }
+        .right button {
+            padding: 15px;
+            font-size: 1em;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            background-color: #2196F3;
+            color: #fff;
+            cursor: pointer;
+        }
+        .right .toggle-password {
+           
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+
+        }
+        .right .link {
+            color: #ffa9f9;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .right .checkbox {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .right .checkbox input {
+            margin-right: 10px;
+        }
+
+        /* Estilo para telas menores, como celulares */
+        @media only screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .left {
+                display: none;
+            }
+            .right {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+
+        .right img {
+            border-radius: 50%;
+           
+        }
+        .pass {
+          
+            display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+        }
+
+        .pass input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px; /* Espaço para o ícone */
+    font-size: 16px;
+    box-sizing: border-box;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="logo2.png" alt="mozbuyit" style="width: 150px;">
+            <h1>Vamos comprar recargas!</h1>
+            <p>Melhore a sua jogabilidade comprando recursos nos seus jogos.</p>
+        </div>
+        <div class="right">
+            <img src="logo2.png" alt="Mozbuyit" style="width: 150px;">
+            <h2> Olá, Que bom ter você aqui!</h2>
+            <form>
+                <h4>E-mail</h4>
+                <input type="text" placeholder="Seu E-mail" required>
+                <div class="pass" style="position: relative;">
+                    <h4>Palavra-passe</h4>
+                    <input type="password" id="password" placeholder="Palavra-passe" required>
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+                <a href="#" class="link">Esqueci a palavra passe</a>
+                <div class="checkbox">
+                  
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+            <a href="signup.html" class="link"><span style="color: white;">Não tem uma conta?</span> Criar uma conta</a>
+        </div>
+    </div>
+  <script type="module" src="auth.js"></script>
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            var passwordToggle = document.querySelector(".toggle-password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.textContent = "🙈";
+            } else {
+                passwordField.type = "password";
+                passwordToggle.textContent = "👁️";
+            }
+        }
+    </script>
+</body>
+</html>

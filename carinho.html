@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSN Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #062858;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #062858;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 100px;
+            border-radius: 50%;
+        }
+
+        .content {
+            background-color: #1b2e44;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .content h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .card {
+            background-color: #0e1e2f;
+            border-radius: 8px;
+            padding: 15px;
+            flex: 1;
+            text-align: center;
+            min-width: 200px;
+            cursor: pointer;
+            border: 2px solid transparent; /* Borda padrão transparente */
+        }
+
+        .card.selected {
+            border: 2px solid #007bff; /* Contorno azul ao selecionar */
+        }
+
+        .card img {
+            border-radius: 50%;
+            max-width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            margin: 10px 0;
+        }
+
+        .total {
+            background-color: #1b2e44;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .total h2 {
+            margin: 0 0 10px 0;
+        }
+
+       
+        .payment-options {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.payment-button {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: 2px solid;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    color: white;
+}
+
+.payment-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.comprar {
+    background-color: #FF6F61; /* Cor de fundo alterada */
+    border-color: #FF6F61; /* Cor de contorno alterada */
+}
+
+.comprar:hover {
+    background-color: white;
+    color: #FF6F61;
+    border-color: #FF6F61;
+}
+
+.ajuda {
+    background-color: #17a2b8; /* Cor de fundo alterada */
+    border-color: #17a2b8; /* Cor de contorno alterada */
+}
+
+.ajuda:hover {
+    background-color: white;
+    color: #17a2b8;
+    border-color: #17a2b8;
+}
+.footer {
+    background-color: #ffffff; /* Fundo branco */
+    padding: 20px 0;
+    color: #333; /* Cor do texto */
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+    max-width: 150px;
+}
+
+.footer-social h4,
+.footer-help h4,
+.footer-contact h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-social a,
+.footer-help .help-button {
+    margin: 0 10px;
+    color: #062858;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.footer-help .help-button {
+    background-color: green; /* Mesma cor rosa do botão */
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-weight: bold;
+    display: inline-block;
+    color: #fff;
+}
+
+.footer-help .help-button:hover {
+    background-color: #ff4081; /* Cor de hover para o botão */
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #000000;
+}
+
+.footer-bottom a {
+    color: #062858;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.profile img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .profile-info h2 {
+                font-size: 18px;
+            }
+        
+
+        @media (max-width: 480px) {
+            .service-card {
+                width: calc(50% - 10px); /* Força duas colunas em telas muito pequenas */
+            }
+
+            .profile {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .profile img {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 10px;
+            }
+
+            .profile-info h2 {
+                font-size: 16px;
+            }
+
+            .profile-info p {
+                font-size: 12px;
+            }
+        }
+     .mpesa {
+        width: 100%;
+        margin: 8px;
+        border-radius: 15px;
+        height: 50px;
+        background-color: #a80808;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        border: 0px;
+     }
+
+     .emola {
+        border: 0px;
+        background-color: #ff8801;
+        width: 100%;
+        margin: 8px;
+        border-radius: 15px;
+        height: 50px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+     }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="imgs/PSN.png" alt="PlayStation Logo">
+        <h1>PLAYSTATION NETWORK CARD (FR)</h1>
+        <h2 style="color: green;">Finalizar Compra</h2>
+    </div>
+
+    </div>
+    <div class="content">
+        <div class="cards">
+        
+            <div class="card">
+                <img src="imgs/PSN.png" alt="PSN Card">
+                <p>PSN Card 10 EURO FR</p>
+                <p>US$ 11.44</p>
+            </div>
+            <div class="card">
+                <img src="imgs/PSN.png" alt="PSN Card">
+                <p>PSN Card 20 EURO FR</p>
+                <p>US$ 20.08</p>
+            </div>
+            <div class="card">
+                <img src="imgs/PSN.png" alt="PSN Card">
+                <p>PSN Card 30 EURO FR</p>
+                <p>US$ 31.07</p>
+            </div>
+            <div class="card">
+                <img src="imgs/PSN.png" alt="PSN Card">
+                <p>PSN Card 40 EURO FR</p>
+                <p>US$ 40.84</p>
+            </div>
+        </div>
+
+        <div class="total">
+            <h2>Total: 400.00 MT</h2>
+            <button class="emola">E-MOLA</button>
+            
+            <button class="mpesa">M-PESA</button>
+            
+            
+            
+            
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        
+        <div class="footer-social">
+            <h4>Siga-nos também:</h4>
+            <a href="#"><i class="fab fa-facebook"></i><img src="instagram (1).png" alt=""></a>
+            <a href="#"><i class="fab fa-instagram"><img src="facebook.png" alt=""></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="footer-help">
+            <h4>Precisa de ajuda?</h4>
+            <a href="#" class="help-button">Nosso Whatsapp</a>
+        </div>
+        <div class="footer-contact">
+            <h4>Contactos</h4>
+            <p>(+258) 833859502</p>
+            <p>mozbuyit@gmail.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Todos os direitos reservados</p>
+    </div>
+</footer>
+
+<script>
+    // Script para adicionar e remover a classe 'selected' quando um card é clicado
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            cards.forEach(c => c.classList.remove('selected')); // Remove a seleção de todos os cards
+            card.classList.add('selected'); // Adiciona a seleção ao card clicado
+        });
+    });
+</script>
+
+</body>
+</html>
